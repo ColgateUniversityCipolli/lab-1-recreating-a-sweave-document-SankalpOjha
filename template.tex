@@ -75,7 +75,7 @@
 \begin{document}
 
 \vspace{-1in}
-\title{Lab 01 -- MATH 240 -- Computational Statistics}
+\title{Lab 1 -- MATH 240 -- Computational Statistics}
 
 \author{
   Sankalp Ojha \\
@@ -221,12 +221,12 @@ We can also call object values from R directly.
 \hldef{result.with.error}
 \end{alltt}
 \begin{verbatim}
-## [1] 41.10707
+## [1] 41.15049
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
 
-The result is 41.10707. Note that I did not type the result, but I used the \verb|\Sexpr{}| command.
+The result is 41.15049. Note that I did not type the result, but I used the \verb|\Sexpr{}| command.
 
 \subsection{Plotting}
 \begin{knitrout}\scriptsize
@@ -254,7 +254,7 @@ The result is 41.10707. Note that I did not type the result, but I used the \ver
 \end{figure}
 
 \subsection{Tables}
-Below, we load and take a peek at some data about the death rates per 1000 in Virginia in 1940.
+Below, we load and take a peek at some data about the death rates per 1000 in Virginia in 1940 \citep{9abfb448-e032-3b5b-972c-40954bc7e23c}.
 \begin{knitrout}\scriptsize
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
@@ -272,7 +272,7 @@ Below, we load and take a peek at some data about the death rates per 1000 in Vi
 \end{kframe}
 \end{knitrout}
 
-If we want to print this nicely, we can do so using the xtable package, which we can reference using the label (Table).
+If we want to print this nicely, we can do so using the xtable package \citep{xtable}, which we can reference using the label (Table).
 \begin{knitrout}\scriptsize
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
@@ -285,7 +285,7 @@ If we want to print this nicely, we can do so using the xtable package, which we
 \end{knitrout}
 
 % latex table generated in R 4.4.2 by xtable 1.8-4 package
-% Thu Jan 23 16:03:14 2025
+% Sat Jan 25 12:31:01 2025
 \begin{table}[H]
 \centering
 \begingroup\small
@@ -310,10 +310,6 @@ Rural Male & Rural Female & Urban Male & Urban Female \\
 % Bibliography
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{2em}
-
-\noindent\textbf{References:} Note that when you add citations to your bib.bib file \emph{and}
-you cite them in your document, the bibliography section will automatically populate here.
-
 \begin{tiny}
 \bibliography{bib}
 \end{tiny}
@@ -326,6 +322,39 @@ you cite them in your document, the bibliography section will automatically popu
 \onecolumn
 \section{Appendix}
 
-If you have anything extra, you can add it here in the appendix. This can include images or tables that don't work well in the two-page setup, code snippets you might want to share, etc.
+\noindent Below is a table from a paper I’m currently working on. Without the analysis object in \tt{R}, I have to create this table myself.
+
+\begin{knitrout}\scriptsize
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{library}\hldef{(xtable)}
+\hldef{sleep.table}\hlkwb{<-}\hlkwd{xtable}\hldef{(VADeaths,}
+                    \hlkwc{label} \hldef{=} \hlsng{"VADeaths.tab"}\hldef{,}
+                    \hlkwc{caption} \hldef{=} \hlsng{"Death Rates per 1000 in Virginia (1940)."}\hldef{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+% latex table generated in R 4.4.2 by xtable 1.8-4 package
+% Sat Jan 25 12:31:01 2025
+\begin{table}[H]
+\centering
+\begingroup\small
+\begin{tabular}{rrrr}
+  \hline
+Rural Male & Rural Female & Urban Male & Urban Female \\ 
+  \hline
+11.70 & 8.70 & 15.40 & 8.40 \\ 
+  18.10 & 11.70 & 24.30 & 13.60 \\ 
+  26.90 & 20.30 & 37.00 & 19.30 \\ 
+  41.00 & 30.90 & 54.60 & 35.10 \\ 
+  66.00 & 54.30 & 71.10 & 50.00 \\ 
+   \hline
+\end{tabular}
+\endgroup
+\caption{Death Rates per 1000 in Virginia (1940).} 
+\label{VADeaths.tab}
+\end{table}
+
 
 \end{document}

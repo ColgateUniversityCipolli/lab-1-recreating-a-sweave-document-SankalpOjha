@@ -24,7 +24,7 @@
 \begin{document}
 
 \vspace{-1in}
-\title{Lab 01 -- MATH 240 -- Computational Statistics}
+\title{Lab 1 -- MATH 240 -- Computational Statistics}
 
 \author{
   Sankalp Ojha \\
@@ -172,13 +172,13 @@ hist(rexp(100))
 \end{figure}
 
 \subsection{Tables}
-Below, we load and take a peek at some data about the death rates per 1000 in Virginia in 1940.
+Below, we load and take a peek at some data about the death rates per 1000 in Virginia in 1940 \citep{9abfb448-e032-3b5b-972c-40954bc7e23c}.
 <<size='scriptsize'>>=
 data(VADeaths)
 head(VADeaths) # Take a peek of the data
 @
 
-If we want to print this nicely, we can do so using the xtable package, which we can reference using the label (Table).
+If we want to print this nicely, we can do so using the xtable package \citep{xtable}, which we can reference using the label (Table).
 <<size='scriptsize'>>=
 library(xtable)
 sleep.table<-xtable(VADeaths,
@@ -195,10 +195,6 @@ table.placement = "H", include.rownames=FALSE, size = "small")
 % Bibliography
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{2em}
-
-\noindent\textbf{References:} Note that when you add citations to your bib.bib file \emph{and}
-you cite them in your document, the bibliography section will automatically populate here.
-
 \begin{tiny}
 \bibliography{bib}
 \end{tiny}
@@ -211,6 +207,18 @@ you cite them in your document, the bibliography section will automatically popu
 \onecolumn
 \section{Appendix}
 
-If you have anything extra, you can add it here in the appendix. This can include images or tables that don't work well in the two-page setup, code snippets you might want to share, etc.
+\noindent Below is a table from a paper I’m currently working on. Without the analysis object in \tt{R}, I have to create this table myself.
+
+<<size='scriptsize'>>=
+library(xtable)
+sleep.table<-xtable(VADeaths,
+                    label = "VADeaths.tab",
+                    caption = "Death Rates per 1000 in Virginia (1940).")
+@
+
+<<echo=FALSE, results="asis">>=
+print(sleep.table,
+table.placement = "H", include.rownames=FALSE, size = "small")
+@
 
 \end{document}
